@@ -1,0 +1,23 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This ultimate react ",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gazzhere/namaste-react.git"
+  },
+  "keywords": [],
+  "author": "Ganesh Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gazzhere/namaste-react/issues"
+  },
+  "homepage": "https://github.com/gazzhere/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
