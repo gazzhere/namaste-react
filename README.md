@@ -23,7 +23,7 @@
 - if we have package lock we can re generate node module 
 
 # difference between npm ans npx?
-- npx mean exectcuing 
+- npx mean executing 
 - npm mean dowmloading package
 
 # cdn link is not prefered way to import React it is expensive operation
@@ -46,3 +46,36 @@
   - Different built for dev and production bundles
   -  ⭐ remove main form package json to solve conflict with parsel
 
+# npm start is equivalent to npm run start
+# npm run build is mandatory for production application
+
+# Myth regarding JSX
+- JSX is not HTML in javascript 
+- JSX is HTML like syntax
+- XML like syntax
+- React element is object
+- JSX is just an syntax
+- JSX is different and React is Different 
+- JSX is transpile before bundling
+
+# Transpile is done by Parcel
+# If parcel is beast Babel is mosnter
+- BABEL help us to convert JSX element into pure JavaScript
+- React.createElement =>ReactElement-JS Object=> HTMLELEMENT(render)
+- JSX=>React.createElement=>ReactElement-JS Object=>HTMLELEMENT(render)
+- in JSX element Attribute in jsx is camelCase 
+- if JSX element has muntiple line wrap it inside (JSX MUNTIPLE LINE CODE)
+- with out () is only if single line
+
+# React components
+- There are two types of component class Based and Function Based
+- class Based -old way
+- functional way -new way
+- components are always starts with Capital letter
+- components should be inside < AnyComponentName />
+- functional component is just a normal javaScript functions
+- component inside component is called component composotion
+- if we use {} this in JSX component we can write any JavaScript inside it
+- 😏anything {literally any thing inside this}
+- JSX can escape Cross-site scripting attack
+- JSX can also be called inside { JSXConponent()} this braces

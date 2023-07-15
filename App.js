@@ -1,23 +1,33 @@
 import React from "react";
-import  ReactDOM  from "react-dom/client";
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  [React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "this is namaste react 🚀"),
-    React.createElement("h2", {}, "babababbaab"),
-  ]),
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "i am h1 tag"),
-    React.createElement("h2", {}, "i am h2 tag"),
-  ])]
-);
+import ReactDOM from "react-dom/client";
 
+// react.createElement =>object
 // const heading = React.createElement(
 //   "h1",
 //   { id: "heading" },
-//   "hello world from react"
+//   "namaste react 🚀"
 // );
-console.log(parent); //object
+
+// jsx
+// this is same as heading as well as JSXheading dowm below
+// const JSXheadings = <h1 className="head">namaste react using jsx🚀🚀</h1>;
+
+const Title=()=>(
+     <h1 className="head">Namaste react functional jsx🚀</h1>
+)
+const number=10000;
+    
+const HeadingComponent=()=>(
+   <div id="container">
+     {Title()}
+     <Title/>
+     <Title></Title>
+       <h1 className="heading">Namaste react functional component😏</h1>
+   </div>
+);
+
+
+// console.log(heading);
+// console.log(JSXheadings);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent/>);
