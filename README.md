@@ -1,24 +1,48 @@
-# namaste react🚀
+#   namaste react🚀
 
-There are two type of dependencies
-dev and normal
-dev mean required in develpoment phase
-normal is used in production
-we use parcel package for bundling(if our project is skeleton the parcel is muscles)
-In dependencies section we ~symbol is used for minor update and ^ is used for major dependencies updates
+- There are two type of dependencies
+- dev and normal
+- dev mean required in develpoment phase
+- normal is used in production
+- we use parcel package for bundling(if our project is skeleton the -parcel is muscles)
+- In dependencies section we ~symbol is used for minor update and ^ -is used for major dependencies updates
 
-# what is package-log.json
-it keeps the exact version of package we had intalled into our project
-why it is useful
-package.json keeps approx verison of packages
-where as package-lock.json keeps exact accurate version of pacakge
+#  what is package-log.json
+- it keeps the exact version of package we had intalled into  our project
+- why it is useful
+- package.json keeps approx verison of packages
+- where as package-lock.json keeps exact accurate version of pacakge
 
 # Integerity into package-log.json??
-it keeps the track of file check exact tarck of all these dependencies
+- it keeps the track of file check exact tarck of all these dependencies
 
 # what are node module?
-all the code fetched from npm 
-its huge file 
-transtitve dependencies
-if we have package lock we can re generate node module 
+- all the code fetched from npm 
+- its huge file 
+- transtitve dependencies
+- if we have package lock we can re generate node module 
+
+# difference between npm ans npx?
+- npx mean exectcuing 
+- npm mean dowmloading package
+
+# cdn link is not prefered way to import React it is expensive operation
+
+# parcel
+  - dev build
+  - local server
+  - HMR =hot module replacement written in c++
+  - faster builds because of cache 
+  - image optimization 
+  - minification
+  - bundling
+  - compress
+  - consistent hashing
+  - code splitting
+  - differential bundling to support older browsers
+  - Diagnostics 
+  - HTTPS
+  - tree shaking algorithm remove unused code for me
+  - Different built for dev and production bundles
+  -  ⭐ remove main form package json to solve conflict with parsel
 
