@@ -79,3 +79,17 @@
 - 😏anything {literally any thing inside this}
 - JSX can escape Cross-site scripting attack
 - JSX can also be called inside { JSXConponent()} this braces
+- stylesheet is in JS object we can inject it using curly braces {} int JSX code 
+- props are just normal argument to function
+- passing a prop to a componet is equivalent to passing argument to a function
+- props are object
+- in destructing ? is called optional chaning
+# config driven UI
+- data driven ui
+- data base drive the nature of Ui 
+- different for other locations
+# Always give a key to map function in JS
+- if we do not mention the react will re render stuff
+- this cause huge performance hit
+# REACT offical doc says that never use indexes for key 
+- not using key(not acceptable) <<<<< index as a key <<<<<<<<<<  unique id
