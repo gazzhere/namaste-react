@@ -1,48 +1,64 @@
 import Resturantcart from "./Resturantcart";
-import { useState } from "react";
-import restrautList from "../utils/mockData";
+import { useState, useEffect } from "react";
+// import restrautList from "../utils/mockData";
+import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   // local state variable - Super poweeful
- arr = useState(restrautList);
-//  arrray destructring 
- const [restrautLists, setListOfResturant]=arr;
- 
-  // normal js Variable
-  // let listOfResturant=[];
+  const [restrautLists, setListOfResturant] = useState([]);
+  const [filteredResturant, setfilteredResturant] = useState([]);
 
-  // let restrautListjs = [
-  //   {
-  //     data: {
-  //       id: "73011",
-  //       name: "KFC",
-  //       cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-  //       cuisines: ["American", "Snacks", "Biryani"],
-  //       costForTwo: 30000,
-  //       avgRating: "3.8",
-  //     },
-  //   },
-  //   {
-  //     data: {
-  //       id: "7301",
-  //       name: "Dominos",
-  //       cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-  //       cuisines: ["American", "Snacks", "Biryani"],
-  //       costForTwo: 30000,
-  //       avgRating: "4.5",
-  //     },
-  //   },
-  // ];
-  return (
+  const [searchText, setSearchtext] = useState("");
+  //  arrray destructring
+  // console.log("render");
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    setListOfResturant(json?.data?.cards[2]?.data?.data?.cards || {});
+    setfilteredResturant(json?.data?.cards[2]?.data?.data?.cards);
+  };
+
+  return restrautLists.length === null ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchtext(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              console.log(searchText);
+              const filterresturant = restrautLists.filter((res) =>
+                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setfilteredResturant(filterresturant);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
             const filteredList = restrautLists.filter(
               (res) => res.data.avgRating >= 4
             );
-            console.log(restrautList);
+            // console.log(restrautList);
             setListOfResturant(filteredList);
           }}
         >
@@ -50,8 +66,10 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {restrautLists.map((resturant) => (
-          <Resturantcart key={resturant.data.id} resData={resturant} />
+        {filteredResturant?.map((resturant) => (
+          <Link key={resturant.data.id} to={"/resturant/" + resturant.data.id}>
+            <Resturantcart resData={resturant} />
+          </Link>
         ))}
       </div>
     </div>

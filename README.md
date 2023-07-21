@@ -118,7 +118,7 @@
 
 - export default Component;
   import Component from "path;"
-  -named Export/Import
+- named Export/Import
   export const Component;
   import {Component} from "Path";
 
@@ -127,10 +127,30 @@
 - Normal JS utility functions
 - useState()
 - useEffect()
+- useEffect only calls when component is render
 
 # Reconciliation Algorithm (React fiber)
 
 - react does not touch actual DOM
 - it compare old and new virtual dom to get output result
 - react can find efficiently find the difference virtuall dom and update the ui
--
+
+# Microservices
+
+- single responsiblity princiapl
+- seperaion of concern
+
+# whenever state variable updates, react triggers a reconciliation cycle (re-render the component)
+
+# useEffect hook
+- if no dependency array =>useEffect is called on every render
+- if dependency array is empty =[]=> useEffect is called on inital render (just once)
+- if dependency array has [anything] called every thime when there is updation and updated
+# 2 type of routing 
+- Client side routing
+- server side routing
+- createBrowerrouter
+- userouterprovide
+- link
+- errorpage
+- userouter hook
