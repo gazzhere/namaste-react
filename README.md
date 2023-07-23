@@ -154,3 +154,12 @@
 - link
 - errorpage
 - userouter hook
+
+# never update state variable directly
+
+
+# use of componentdid mount in Class Based component
+ - use effect and component are similar 
+
+# why do we componentWillUnmount 
+- react spa will reapeat countiously
