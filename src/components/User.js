@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 const User = (props) => {
   const [count, setcount] = useState(0);
   useEffect(() => {
-    console.log("useEffect");
+    // console.log("useEffect");
     const timer = setInterval(() => {
-      console.log("COMPNENT");
+      // console.log("COMPNENT");
     }, 1000);
     return () => {
-      console.log("return");
+      // console.log("return");
       clearInterval(timer);
     };
   }, []);
-  console.log("render");
+  // console.log("render");
   return (
     <div className="user-card">
       <h1>Count={count}</h1>

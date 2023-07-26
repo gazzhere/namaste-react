@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { withPromotedLable } from "./Resturantcart";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   // local state variable - Super poweeful
@@ -12,6 +14,7 @@ const Body = () => {
   const [filteredResturant, setfilteredResturant] = useState([]);
 
   const [searchText, setSearchtext] = useState("");
+  const {setUserName,loggedinUser}=useContext(UserContext);
 
   const ResturantCradPromoted = withPromotedLable(Resturantcart);
   //  arrray destructring
@@ -26,6 +29,7 @@ const Body = () => {
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6342587&lng=85.0584152&page_type=DESKTOP_WEB_LISTING"
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1725542&lng=72.942537&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1765331&lng=72.94753299999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1421629&lng=72.9374462&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json);
@@ -65,29 +69,19 @@ const Body = () => {
           </button>
         </div>
         <div className="m-4 p-4 flex items-center">
-          <button
-            className="px-4 py-2 bg-green-100  rounded-lg "
-            onClick={() => {
-              const filteredList = restrautLists?.filter(
-                (res) => res.info.avgRating >= 2
-              );
-              // console.log(restrautList);
-              setListOfResturant(filteredList);
-            }}
-          >
-            Top rated resturant
-          </button>
+        <label>username: </label>
+        <input className="border border-black p-2" value ={loggedinUser}onChange={(e)=>setUserName(e.target.value)}></input>
         </div>
       </div>
       <div className="flex flex-wrap justify-center items-stretch ">
         {filteredResturant?.map((resturant) => (
           <Link key={resturant.info.id} to={"/resturant/" + resturant.info.id}>
-            {resturant.info.promoted ? (
+            {/* {resturant.info.promoted ? (
               <ResturantCradPromoted resData={resturant} />
              
             ) : (
               <Resturantcart resData={resturant} />
-            )}
+            )} */}
             <Resturantcart resData={resturant} />
           </Link>
         ))}

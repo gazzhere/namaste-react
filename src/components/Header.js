@@ -43,7 +43,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
-          <li className=" px-1 font-bold" >loggedinUser </li>
+          <li className=" px-1 font-bold" >{loggedinUser} </li>
         </ul>
       </div>
     </div>
