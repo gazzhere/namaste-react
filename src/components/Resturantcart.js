@@ -8,7 +8,7 @@ const Resturantcart = (props) => {
     avgRating,
     costForTwo,
     deliveryTime,
-  } = resData?.data;
+  } = resData?.info;
   return (
     <div className="m-4 p-4 w-[250px] rounded-lg bg-orange-200 hover:bg-orange-300  ">
       <img

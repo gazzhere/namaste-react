@@ -22,12 +22,15 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6342587&lng=85.0584152&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1725542&lng=72.942537&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1765331&lng=72.94753299999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json);
-    setListOfResturant(json?.data?.cards[2]?.data?.data?.cards || {});
-    setfilteredResturant(json?.data?.cards[2]?.data?.data?.cards);
+    setListOfResturant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || {});
+    setfilteredResturant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const OnlineStatus = useOnlineStatus();
@@ -52,8 +55,8 @@ const Body = () => {
             className="px-4 py-2 bg-green-100 m-4 rounded-lg "
             onClick={() => {
               console.log(searchText);
-              const filterresturant = restrautLists.filter((res) =>
-                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              const filterresturant = restrautLists?.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setfilteredResturant(filterresturant);
             }}
@@ -65,8 +68,8 @@ const Body = () => {
           <button
             className="px-4 py-2 bg-green-100  rounded-lg "
             onClick={() => {
-              const filteredList = restrautLists.filter(
-                (res) => res.data.avgRating >= 4
+              const filteredList = restrautLists?.filter(
+                (res) => res.info.avgRating >= 2
               );
               // console.log(restrautList);
               setListOfResturant(filteredList);
@@ -78,15 +81,17 @@ const Body = () => {
       </div>
       <div className="flex flex-wrap justify-center items-stretch ">
         {filteredResturant?.map((resturant) => (
-          <Link key={resturant.data.id} to={"/resturant/" + resturant.data.id}>
-            {resturant.data.promoted ? (
+          <Link key={resturant.info.id} to={"/resturant/" + resturant.info.id}>
+            {resturant.info.promoted ? (
               <ResturantCradPromoted resData={resturant} />
+             
             ) : (
               <Resturantcart resData={resturant} />
             )}
             <Resturantcart resData={resturant} />
           </Link>
         ))}
+      
       </div>
     </div>
   );
