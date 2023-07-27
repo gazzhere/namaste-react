@@ -163,3 +163,11 @@
 
 # why do we componentWillUnmount 
 - react spa will reapeat countiously
+
+# REDUX TOOL KIT
+- Install Redux toolkit and Redux  & react-redux
+- Build our store
+- connect our store to our app
+- slice (cart slice)
+- dispatch(action)
+- Selectore (read data)
