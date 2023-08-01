@@ -171,3 +171,14 @@
 - slice (cart slice)
 - dispatch(action)
 - Selectore (read data)
+# Types of Testing (developer)
+- Unit testing
+- intergration testing
+- End to End test testing -e2e testing
+
+# setting up Testing in our app
+- Install react testing library
+- Install jest
+- Install Bable depednencies
+- Install Bable 
+- Configure Parcel config to disable bable default bable transpilation
