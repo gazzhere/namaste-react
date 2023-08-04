@@ -182,3 +182,9 @@
 - Install Bable depednencies
 - Install Bable 
 - Configure Parcel config to disable bable default bable transpilation
+- jest Configuration
+- Jest -npx jest -init
+- install jsdom library
+- install @bable/preset-react -to make JSX work in test cases
+- Include @bable/preset-react inside my bable congif
+- Install @testing-library/jest-dom
