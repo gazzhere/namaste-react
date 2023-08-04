@@ -14,7 +14,6 @@ const Header = () => {
 
   // selector
   const cartitems = useSelector((store) => store.cart.items);
-  console.log(cartitems);
 
   return (
     <div className="flex justify-between bg-orange-500 px-4  sm:bg-orange-600">
